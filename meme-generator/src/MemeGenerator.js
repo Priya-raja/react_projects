@@ -20,6 +20,11 @@ class MemeGenerator extends Component {
             this.setState({allMemeImgs: memes})
         })
     }
+    handleChange(event) {
+        const {name, value} = event.target
+        this.setState({ [name]: value })
+    }
+    
     /**
      * We'll be using an API that provides a bunch of meme images.
      * 
@@ -30,22 +35,30 @@ class MemeGenerator extends Component {
      */
     render() {
         return (
+            <div>
             <form className="meme-form">
                <input 
                         type="text"
                         name="topText"
                         placeholder="Top Text"
                         value={this.state.topText}
+                        onChange= {this.handleChange}
                     /> 
                     <input 
                         type="text"
                         name="bottomText"
                         placeholder="Bottom Text"
-                        value={this.state.bottText}
+                        value={this.state.bottomText}
+                        onChange = {this.handleChange}
                     /> 
                 <button>Gen</button>
-
             </form>
+            <div className="meme">
+            <img src={this.state.randomImg} alt="" />
+            <h2 className="top">{this.state.topText}</h2>
+            <h2 className="bottom">{this.state.bottomText}</h2>
+        </div>
+        </div>
         )
     }
         
