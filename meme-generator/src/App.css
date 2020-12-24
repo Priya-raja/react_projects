@@ -25,6 +25,14 @@ header > p {
   margin-left: 60px;
 }
 
+.meme-form > button {
+  border: none;
+  font-family: VT323, monospace;
+  font-size: 25px;
+  letter-spacing: 1.5px;
+  color: white;
+  background: #6441A5;
+}
 
 
 
