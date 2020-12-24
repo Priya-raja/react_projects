@@ -9,6 +9,8 @@ class MemeGenerator extends Component {
             randomImg: "http://i.imgflip.com/1bij.jpg",
             allMemeImgs: []
         }
+        this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
     componentDidMount() {
 
@@ -24,6 +26,12 @@ class MemeGenerator extends Component {
         const {name, value} = event.target
         this.setState({ [name]: value })
     }
+    handleSubmit(event) {
+        event.preventDefault()
+        const randNum = Math.floor(Math.random() * this.state.allMemeImgs.length)
+        const randMemeImg = this.state.allMemeImgs[randNum].url
+        this.setState({ randomImg: randMemeImg })
+    }
     
     /**
      * We'll be using an API that provides a bunch of meme images.
@@ -33,10 +41,18 @@ class MemeGenerator extends Component {
      * data that comes back (`response.data.memes`) to a new state property
      * called `allMemeImgs`. The
      */
+
+     /**
+     * Create a method that, when the "Gen" button is clicked, chooses one of the
+     * memes from our `allMemeImgs` array at random and makes it so that is the
+     * meme image that shows up in the bottom portion of our meme generator site
+     */
+    
+    
     render() {
         return (
             <div>
-            <form className="meme-form">
+            <form className="meme-form" onSubmit={this.handleSubmit}>
                <input 
                         type="text"
                         name="topText"
