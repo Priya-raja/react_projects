@@ -18,7 +18,7 @@ class MemeGenerator extends Component {
         .then(response => response.json())
         .then(response => {
             const {memes} = response.data
-            console.log(memes[0])
+            console.log(memes[1])
             this.setState({allMemeImgs: memes})
         })
     }
