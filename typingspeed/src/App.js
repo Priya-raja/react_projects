@@ -1,19 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function App () {
-  // const [words,setWords] = useState([]);
-  // const [time,setTime]  = useState([0]);
+  const [text, setText] = useState("")
 
+  function handleChange(e) {
 
-    // handleChange = {
- 
-       
-    // }
+    const {value} = e.target
+    setText(value)
+  }
+
+  console.log(text)
 
   return(
     <div>
       <h1>How fast do you type?</h1>
-      <textarea />
+      <textarea
+      onChange= {handleChange}
+      value= {text} />
       <h2> Time </h2>
       <button>Start</button>
       <h2>Words</h2>
