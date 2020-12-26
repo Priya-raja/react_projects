@@ -9,7 +9,12 @@ function App () {
     setText(value)
   }
 
-  console.log(text)
+  function calculateWordcount(text) {
+     const wordArr = text.split(' ');
+     
+     return wordArr.filter(word => word!== 0).length
+
+  }
 
   return(
     <div>
@@ -18,7 +23,7 @@ function App () {
       onChange= {handleChange}
       value= {text} />
       <h2> Time </h2>
-      <button>Start</button>
+      <button onClick = { () => console.log(calculateWordcount(text))}>Start</button>
       <h2>Words</h2>
       
     </div>
