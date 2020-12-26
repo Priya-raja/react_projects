@@ -8,18 +8,19 @@ div {
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
-  background-color: cornflowerblue;
-  color: white;
+  background-color: rgb(88, 136, 224);
+  color: black;
   text-transform: uppercase;
 }
 
 button {
  
   padding: 1em 2em;
-  background-color:darkgreen;
+  background-color: rgb(9, 9, 77);
   font-weight: bold;
   color: whitesmoke;
   text-transform: uppercase;
+  border: rgb(9, 9, 77);
 
 }
 
@@ -33,4 +34,7 @@ textarea {
   border: none;
 }
 
-
+textarea:disabled {
+  background-color: #747171;
+  color: black;
+}
