@@ -7,6 +7,9 @@ function App () {
   //set the time remaining to count
   const [timeRemaining, setTimeRemaining] = useState("5")
 
+  //settime running
+   const [isTimeRunning, setIsTimeRunning] = useState(false)
+
   function handleChange(e) {
 
     const {value} = e.target
@@ -20,14 +23,14 @@ function App () {
 
   }
   useEffect(() => {
-    if(timeRemaining > 0) {
-        setTimeout(() => {
-            setTimeRemaining(time => time - 1)
-        }, 1000)
-    }
-}, [timeRemaining])
-
-
+    if (isTimeRunning && timeRemaining > 0){ 
+    setTimeout(() => {
+         setTimeRemaining(time => time - 1)
+    }, 1000)
+  } else if(timeRemaining === 0) {
+    setIsTimeRunning(false)
+}
+  }, [timeRemaining, isTimeRunning] )
   return(
     <div>
       <h1>How fast do you type?</h1>
@@ -35,7 +38,7 @@ function App () {
       onChange= {handleChange}
       value= {text} />
       <h2> Time :{timeRemaining} </h2>
-      <button onClick = { () => console.log(calculateWordcount(text))}>Start</button>
+      <button onClick = { () =>setIsTimeRunning(true)}>Start</button>
       <h2>Words</h2>
       
     </div>
