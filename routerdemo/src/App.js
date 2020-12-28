@@ -2,6 +2,9 @@ import React from "react"
 import {Link, Route, Switch} from "react-router-dom"
 import Home from './pages/Home'
 import About from './pages/About'
+import Info from './pages/Profile/Info'
+import Profile from './pages/Profile/Profile'
+import Settings from './pages/Profile/Settings'
 
 function App () {
   return(
@@ -10,10 +13,26 @@ function App () {
       <nav>
         <Link to="/">Home</Link>
         <Link to="/about"> About </Link>
+        <Link to="/pages/Profile/Profile">Profile</Link>
       </nav>
 <Switch>
   <Route exact path="/"><Home /></Route> 
+  <Route exact path="pages/Profile/Profile">
+                    <Profile />
+                </Route>
+
   <Route path="/about"><About/> </Route> 
+
+  <Route path="pages/Profile/Info"> 
+   <Info/>
+  </Route>
+
+  
+
+  <Route path="pages/Profile/Settings"> 
+   <Settings/>
+  </Route>
+
 
 </Switch>
 
