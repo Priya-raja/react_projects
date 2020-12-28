@@ -17,19 +17,17 @@ function App () {
       </nav>
 <Switch>
   <Route exact path="/"><Home /></Route> 
-  <Route exact path="pages/Profile/Profile">
-                    <Profile />
-                </Route>
+  
 
   <Route path="/about"><About/> </Route> 
 
-  <Route path="pages/Profile/Info"> 
+  <Route  path="/pages/Profile/Profile"> <Profile/> </Route>
+
+  <Route path="/Profile/Info"> 
    <Info/>
   </Route>
 
-  
-
-  <Route path="pages/Profile/Settings"> 
+  <Route path="/Profile/Settings"> 
    <Settings/>
   </Route>
 
