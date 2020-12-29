@@ -1,11 +1,13 @@
 import React from "react"
-// import {Link} from "react-router-dom"
+ import {Link} from "react-router-dom"
 import serviceData from "./servicesData"
 
 function ServiceList() {
   
     const services = serviceData.map(item => (
-        <h1>{item.name} - ${item.price}</h1>
+        <h1 key={item._id}>
+            
+    <Link to={`/services/${item._id}`}>{item.name}</Link> - ${item.price}</h1>
     ))
 
     return (

@@ -3,7 +3,7 @@ import {Route, Switch} from "react-router-dom"
 import Home from './pages/Home'
 import Header from "./components/header"
 import ServiceList from './services/ServiceList'
-import serviceDetail from './services/serviceDetail'
+import ServiceDetail from './services/ServiceDetail'
 
 
 function App () {
@@ -17,6 +17,7 @@ function App () {
   
 
   <Route exact path="/services"><ServiceList/> </Route> 
+  <Route exact path="/services/:serviceId"><ServiceDetail/> </Route>
 
    
 
