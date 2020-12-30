@@ -1,5 +1,5 @@
 import React from "react"
-import {Route, Switch} from "react-router-dom"
+import {Route, Switch, useRouteMatch} from "react-router-dom"
 import Home from './pages/Home'
 import Header from "./components/header"
 import ServiceList from './services/ServiceList'
@@ -7,6 +7,8 @@ import ServiceDetail from './services/ServiceDetail'
 
 
 function App () {
+  const {path, url} = useRouteMatch();
+  console.log(path);
   return(
      
     <div>
