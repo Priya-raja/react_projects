@@ -10,6 +10,7 @@ function ServiceDetail(props) {
         <div>
         <h1>Service Detail Page</h1>
         <p>{thisService.name} - ${thisService.price}</p>
+        <p>{thisService.description}</p>
         </div>
     )
   
