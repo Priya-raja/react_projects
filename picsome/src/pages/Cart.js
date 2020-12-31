@@ -3,11 +3,10 @@ import "../App.css"
 
 function Cart() {
     return(
-       <div>
-           This is cart page
-       </div>
-      
-        
+      <main className="cart-page">
+          <h1>Cart Page</h1>
+
+      </main>  
     )
 }
 
