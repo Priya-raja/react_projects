@@ -1,10 +1,11 @@
 //Applications main logic goes here
-import React, {useState} from "react"
-
+import React, {useState, useContext} from "react"
+import {Context} from "../Context"
 function Image({className, img}) {
     const [hovered, setHovered] = useState()
+    const {toggleFavorite} = useContext(Context)
     console.log(hovered)
-    const heartIcon = hovered && <i className="ri-heart-line favorite"></i>
+    const heartIcon = hovered && <i className="ri-heart-line favorite" onClick={() => toggleFavorite(img.id)}></i>
     const cartIcon = hovered && <i className="ri-add-circle-line cart"></i>
 
     return (
