@@ -17,8 +17,6 @@ function App() {
       </Route>
 
     </Switch>
-
-    <p> Home Page</p>
     </div>
   )
 }
