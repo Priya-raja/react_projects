@@ -1,8 +1,15 @@
-import React from "react"
+import React,{useContext} from "react"
+import {Context} from "../Context"
 
 function CartItem({item}) {
+
+    const {removeFromCart} = useContext(Context)
     return (
-        <h2>{item.id}</h2>
+        <div className="cart-item">
+        <i className="ri-delete-bin-line" onClick={() => removeFromCart(item.id)}></i>
+        <img src={item.url} width="130px" alt="item" />
+        <p>$5.99</p>
+    </div>
     )
 }
 
