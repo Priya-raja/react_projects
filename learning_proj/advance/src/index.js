@@ -3,15 +3,17 @@ import ReactDOM from 'react-dom';
 
 // const reactElement = <div className="fish">Heellllooooo</div>
 
-const Button = ({ children }) => {
-    return <button>{children}</button>
+const Button = ({ children, onClick }) => {
+    return <button onClick={onClick}> {children}</button>
 }
 
 const domElement = document.getElementById('root')
 
 ReactDOM.render(
     <div>
-      <Button>
+      <Button onClick = {() => {
+    console.log("I was clicked")
+}}>
         + Add
       </Button>
       <Button>
