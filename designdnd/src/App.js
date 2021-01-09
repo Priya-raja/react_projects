@@ -10,8 +10,9 @@ function App() {
       <Palette id = "p2" className="container">
       <DragElements id = "e1" size = "image">Image</DragElements>
       <DragElements id = "e2" size = "text">Text</DragElements>
-      <DragElements id = "e3" size = "text">Test</DragElements>
-      <DragElements id = "e4" size = "text">Test</DragElements>
+      <DragElements id = "e3" size = "text">Price</DragElements>
+      <DragElements id = "e4" size = "text">Source Code</DragElements>
+      <DragElements id = "e5" size = "text">Expiration Date</DragElements>
       </Palette>
       </div>
     </main>

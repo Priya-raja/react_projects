@@ -15,7 +15,7 @@
     justify-content: space-between;
   }
 .image {
-    border: 1px solid #c5bfbf;
+    border: 1px solid#ece7e7;
     border-radius: 5%;
     width:100px;
     height:100px;
@@ -23,18 +23,18 @@
     justify-content: center;
     margin:1em;
     align-items: center;
-    background-color: rgb(214, 140, 140);
+    background-color:#ece7e7;
   }
 
 .text {
     border: 1px solid #ece7e7;
-    border-radius: 5%;
-    padding:10px;
-    width: 5rem;
+    border-radius: 10px;
+    padding:5px;
+    width: 7rem;
     height: 2rem;
     margin:1em;
     text-align: center;
-    background-color: white;
+    background-color: #fcfcfc;
   }
   .container > h3{
      margin-top:0;
