@@ -1,32 +1,19 @@
 import React from "react"
+import DragElements from "./DragElements"
+import Palette from "./Palettes"
 import "./App.css"
-
-  const Design = ({children, size, ...props}) => {
-    return (
-      <div>
-      <div className = {`${size}`} {...props} draggable="true">{children}</div>  
-      </div>
-    )
-  }
 function App() {
-  return(
-    <main>
-      <div className="palettes">
-      
-      <div className="container">
-        <h3>Drawing Palette</h3>
-        
+   return(
+    <main> 
+      <div className= "palettes">
+      <Palette id = "p1" className="container"></Palette>
+      <Palette id = "p2" className="container">
+      <DragElements id = "e1" size = "image">Image</DragElements>
+      <DragElements id = "e2" size = "text">Text</DragElements>
+      <DragElements id = "e3" size = "text">Test</DragElements>
+      <DragElements id = "e4" size = "text">Test</DragElements>
+      </Palette>
       </div>
-      <div className="container">
-      <h3>Design Objects Palette</h3>
-       <Design  size = "image" >Image</Design>
-       <Design  size = "text">Text</Design>
-       <Design  size = "text">Price</Design>
-       <Design  size = "text">Source code</Design>
-       <Design  size = "text">Expiration date</Design>
-       </div>
-       </div>
-       <div className="name"></div>    
     </main>
   )
 }
