@@ -2,6 +2,7 @@ import React from "react"
 
 
 function DragElements ({children, size, ...props }) {
+
   const dragover = e => {
     e.preventDefault ();
     e.stopPropagation ();
@@ -26,35 +27,16 @@ function DragElements ({children, size, ...props }) {
        draggable="true"
        onDragStart = {dragstart}
        onDragOver = {dragover}
-      >{children}
+      >
+        {children}
       
-      </div>  
+      </div>
       </div>
     )
   }
   //on droppable
   
-      /* <div className="palettes">
-      <div className="container droppable"
-        onDragOver= {dragover_handler}
-        onDrop= {drop_handler}
-      >
-       
-        <h3>Drawing Palette</h3>
-        
-      </div>
-      <div className="container"
-       
-      >
       
-       <Design  size = "image" onDragStart ={dragstart_handler}>Image</Design>
-       <Design  size = "text">Text</Design>
-       <Design  size = "text">Price</Design>
-       <Design  size = "text">Source code</Design>
-       <Design  size = "text">Expiration date</Design>
-       </div>
-       </div>
-       <div className="name"></div> */
        
 
     
