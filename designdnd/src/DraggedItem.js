@@ -1,9 +1,9 @@
 import React from "react"
 
-function DraggedItem (props) {
+function DraggedItem(props) {
     return (
         <div className="name">
-            {props}
+            {props.item}
         </div>
     )
 }

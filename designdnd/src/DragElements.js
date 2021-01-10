@@ -1,5 +1,4 @@
-import React, {useState,useEffect} from "react"
-
+import React, {useState} from "react"
 
 function DragElements ({children, size, ...props }) {
 
@@ -7,15 +6,8 @@ function DragElements ({children, size, ...props }) {
   function dragend (e) {
     const target = e.target;
     item.push(target.innerText)  
-    console.log(item)
-    // let wish =  item.map((rep) => <li key = {rep}>{rep}</li>)
-      
+    
    }
-
-   function newList() {
-     setItem(item.map((rep) => <li key = {rep}>{rep}</li>))
-   }
-   
 
   const dragover = e => {
     e.preventDefault ();
@@ -31,13 +23,8 @@ function DragElements ({children, size, ...props }) {
     // }, 0);
    }
 
-   useEffect(() => {
-      setItem(item)
-
-   },[item])
-
     return (
-     <div>
+     
       <div 
        id = {props.id}
        className = {`${size}`} {...props}
@@ -48,11 +35,8 @@ function DragElements ({children, size, ...props }) {
       >
         {children}
       </div>
-       {newList}
-       </div>
       
-    
-      
+  
     )
   }
   //on droppable

@@ -1,4 +1,5 @@
 import React from "react"
+
 import "./App.css"
 
 
@@ -17,6 +18,7 @@ function DrawingPalettes(props) {
         e.preventDefault();
     }
    return(
+       <div>
        <div 
        id ={props.id}
        onDrop = {drop}
@@ -25,6 +27,8 @@ function DrawingPalettes(props) {
          
            {props.children}
            
+       </div>
+       
        </div>
 
        

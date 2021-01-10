@@ -5,7 +5,7 @@ import DraggedItem from "./DraggedItem"
 import "./App.css"
 function App() {
 
-  const {newList} = DragElements(<div></div>)
+  
 //    const design = item.map((t) => {
 //    <DragElements size ="text" onDragEnd={dragend}> {t.name}</DragElements>
 // })
@@ -18,18 +18,16 @@ function App() {
       </DrawingPalettes>
       <DrawingPalettes id = "p2" className="container" >
         <h3>Design Palette</h3>
-        
-         
        <DragElements id = "e1" size = "image" >Image</DragElements>
       <DragElements id = "e2" size = "text" >Text</DragElements>
       <DragElements id = "e3" size = "text">Price</DragElements>
       <DragElements id = "e4" size = "text">Source Code</DragElements>
       <DragElements id = "e5" size = "text">Expiration Date</DragElements> 
-      
       </DrawingPalettes>
     
       </div>
-       <DraggedItem>{newList}  </DraggedItem> 
+      <DraggedItem> </DraggedItem>
+      
     </main>
   )
 }
