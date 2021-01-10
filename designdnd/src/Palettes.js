@@ -9,7 +9,6 @@ function DrawingPalettes(props) {
         e.preventDefault();
         const palette_id= e.dataTransfer.getData('palette_id')
         const palette = document.getElementById(palette_id);
-        
         e.target.appendChild(palette)  
         
     }
@@ -20,8 +19,6 @@ function DrawingPalettes(props) {
    return(
        <div 
        id ={props.id}
-       
-       
        onDrop = {drop}
        onDragOver = {dragOver}
        className = {props.className}>
