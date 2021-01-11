@@ -18,7 +18,7 @@ function DrawingPalettes(props) {
         e.preventDefault();
     }
    return(
-       <div>
+       
        <div 
        id ={props.id}
        onDrop = {drop}
@@ -29,7 +29,7 @@ function DrawingPalettes(props) {
            
        </div>
        
-       </div>
+       
 
        
     

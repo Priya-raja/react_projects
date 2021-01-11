@@ -6,7 +6,7 @@
 }
 .container {
     border: 1px solid #bbb8b8;
-    width:35em;
+    width:20em;
     height:20em;
     padding: 0.2em;
     margin:2em;
@@ -42,7 +42,7 @@
      
      
   }
-  .name {
+  #name {
     border: 1px solid #bbb8b8;
     padding: 0.2em;
     width: 15rem;
