@@ -8,9 +8,9 @@ function App() {
   //    { id:"e1",title:"image" , items:["Image"]},
   //  ]
 
-
-  const [list, setList] = useState([""]);
+  
   const [item, setItem] = useState();
+  const [list, setList] = useState([]);
 
   function dragend(e) {
     e.preventDefault();
@@ -22,12 +22,9 @@ function App() {
     setList(newList);
   }
 
-
-  const displayName = list.map((grp) => (
-    <li key={grp.id}>{grp.item}</li>
+  const displayName = list.map((dt) => (
+      <li>{dt.item}</li>
   ))
-
-
   const portalContainer = document.getElementById('name');
 
   return (
@@ -36,12 +33,12 @@ function App() {
       <div className="palettes">
         <DrawingPalettes id="p1" className="container">
 
-          <h3>Drawing Palette</h3>
+        <h3>Drawing Palette</h3>
         </DrawingPalettes>
 
         <DrawingPalettes id="p2" className="container">
           <h3>Design Palette</h3>
-          <DragElements id="e1" size="image" onDragEnd={dragend}>Image</DragElements>
+          <DragElements id="e1" size="image"onDragEnd={dragend}>Image</DragElements>
           <DragElements id="e2" size="text" onDragEnd={dragend}> Text</DragElements>
           <DragElements id="e3" size="text" onDragEnd={dragend}> Price</DragElements>
           <DragElements id="e4" size="text" onDragEnd={dragend}> Source Code</DragElements>
@@ -51,9 +48,9 @@ function App() {
 
       <div>
         {ReactDOM.createPortal(
-          <ul>
-            {displayName}
-          </ul>,
+          <div>
+          {displayName}
+          </div>,
           portalContainer)}
 
       </div>
