@@ -19,7 +19,8 @@ function DrawingPalettes(props) {
     }
    return(
        
-       <div 
+       <div
+    
        id ={props.id}
        onDrop = {drop}
        onDragOver = {dragOver}
