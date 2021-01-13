@@ -1,7 +1,4 @@
 import React, {useState,useRef} from "react"
-
-
-
 function FrmEmail () {
 
     const[name, setName] = useState('');
@@ -15,8 +12,10 @@ return(
     value={name}
     
     onChange= {(e) => {
-        focusRef.current.focus()
         setName(e.target.value)
+        if (name.length >= 10) {
+            focusRef.current.focus()
+          }
     }}
     placeholder="Name"/>
 
@@ -26,6 +25,8 @@ return(
         setEmail(e.target.value)
     }}
     placeholder="email"/>
+
+<button ref={focusRef}>Submit</button>
 
 </section>
     )

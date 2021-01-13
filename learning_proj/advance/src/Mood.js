@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-
 const CharacterCounterInput = ({ text, defaults }) => {
   const [message, setMessage] = useState('')
   const maxLength = 20

@@ -71,13 +71,16 @@ button {
   cursor: pointer;
 }
 
-button:focus {
-  background: #3d6d8a;
-}
+
 input {
   margin: 5px 0;
+  outline: none;
   padding: 5px;
   min-width: 250px;
+}
+
+button:focus {
+  background: #3d6d8a;
 }
 
 
