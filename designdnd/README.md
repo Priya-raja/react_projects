@@ -1,3 +1,5 @@
+# This app is about Drag and Drop components.
+### I have used react UseState and portal to display the dragged object.
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
