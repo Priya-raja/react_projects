@@ -6,13 +6,15 @@ import Mood from './Mood';
 import FrmEmail from './emailref';
 import Toggleable from './ToggleableForm'
 import './App.css';
+import Reduceexample from './Reduceexample'
 
 ReactDOM.render(
   // <App />,
   //  <Count />,
   //  <Mood />,
   //  <FrmEmail />,
-    <Toggleable/>,
+    // <Toggleable/>,
+    <Reduceexample/>,
   document.getElementById('root')
 )
    
