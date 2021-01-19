@@ -30,7 +30,10 @@ function reducer(state, action) {
 console.log(actions.reduce(reducer, initialState))
 
 const Reduceexample = () => {
-  const [count, setCount] = useState(0)
+  // const [count, setCount] = useState(0)
+  const [state,dispatch] = useReducer((state, action)) => {
+    
+  }
   
   const add = () => {
     setCount(count + 1)
