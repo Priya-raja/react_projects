@@ -1,6 +1,52 @@
 import React, { useState, useReducer } from 'react';
 import ReactDOM from 'react-dom';
 
+const App = () => {
+  // const [count, setCount] = useState(0)
+  const [state, dispatch] = useReducer((state, action) => {
+    switch(action.type) {
+      case 'INCREMENT': {
+        return { ...state, count: state.count + 1 }
+      }
+      case 'DECREMENT': {
+        return { ...state, count: state.count - 1 }
+      }
+      default: {
+        return state
+      }
+    }
+  }, {
+    count: 0
+  })
+  
+  let [something, setSomething] = useState('something')
+  
+  let { count } = state
+  
+  const add = () => {
+    // setCount(count + 1)
+    dispatch({ type: 'INCREMENT' })
+  }
+  
+  const subtract = () => {
+    if (count > 0) {
+      // setCount(count - 1)
+      dispatch({ type: 'DECREMENT' })
+    }
+  }
+  
+  return (
+    <section>
+      <h2>Counter: The Most Novel Example I Could Come Up With</h2>
+      <div className="counter">
+        <button onClick={subtract}>-</button>
+        <div>{count}</div>
+        <button onClick={add}>+</button>
+      </div>
+    </section>
+  )
+}
+
 let initialState = { count: 0, cake: true }
 
 let actions = [
@@ -29,31 +75,4 @@ function reducer(state, action) {
 
 console.log(actions.reduce(reducer, initialState))
 
-const Reduceexample = () => {
-  // const [count, setCount] = useState(0)
-  const [state,dispatch] = useReducer((state, action)) => {
-    
-  }
-  
-  const add = () => {
-    setCount(count + 1)
-  }
-  
-  const subtract = () => {
-    if (count > 0) {
-      setCount(count - 1)
-    }
-  }
-  
-  return (
-    <section>
-      <h2>Counter: The Most Novel Example I Could Come Up With</h2>
-      <div className="counter">
-        <button onClick={subtract}>-</button>
-        <div>{count}</div>
-        <button onClick={add}>+</button>
-      </div>
-    </section>
-  )
-}
-export default Reduceexample;
+ReactDOM.render(<App />, document.getElementById('root'));
