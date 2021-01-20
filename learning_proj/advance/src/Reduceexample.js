@@ -1,8 +1,7 @@
-import React, { useState, useReducer } from 'react';
+import React, { useReducer } from 'react';
 import ReactDOM from 'react-dom';
 
-const App = () => {
-  // const [count, setCount] = useState(0)
+function useCounter() {
   const [state, dispatch] = useReducer((state, action) => {
     switch(action.type) {
       case 'INCREMENT': {
@@ -19,18 +18,20 @@ const App = () => {
     count: 0
   })
   
-  let [something, setSomething] = useState('something')
+  return [state, dispatch]
+}
+
+const Reduceexample = () => {
+  const [state, dispatch] = useCounter()
   
   let { count } = state
   
   const add = () => {
-    // setCount(count + 1)
     dispatch({ type: 'INCREMENT' })
   }
   
   const subtract = () => {
     if (count > 0) {
-      // setCount(count - 1)
       dispatch({ type: 'DECREMENT' })
     }
   }
@@ -47,32 +48,4 @@ const App = () => {
   )
 }
 
-let initialState = { count: 0, cake: true }
-
-let actions = [
-  { type: 'ADD', by: 2 },
-  { type: 'MINUS', by: 4 },
-  { type: 'ADD', by: 10 },
-  { type: 'EAT_CAKE' }
-]
-
-function reducer(state, action) {
-  switch(action.type) {
-    case 'ADD': {
-      return { ...state, count: state.count + action.by }
-    }
-    case 'MINUS': {
-      return { ...state, count: state.count - action.by }
-    }
-    case 'EAT_CAKE': {
-      return { ...state, cake: false }
-    }
-    default: {
-      return state
-    }
-  }
-}
-
-console.log(actions.reduce(reducer, initialState))
-
-ReactDOM.render(<App />, document.getElementById('root'));
+export default Reduceexample;
