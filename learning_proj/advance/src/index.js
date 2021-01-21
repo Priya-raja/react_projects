@@ -7,7 +7,8 @@ import FrmEmail from './emailref';
 import Toggleable from './ToggleableForm'
 import './App.css';
 import Reduceexample from './Reduceexample';
-import DarkMode from './DarkMode';
+// import DarkMode from './DarkMode';
+import Reducefetch from './Reducefetch';
 
 ReactDOM.render(
   // <App />,
@@ -16,7 +17,8 @@ ReactDOM.render(
   //  <FrmEmail />,
     // <Toggleable/>,
     // <Reduceexample/>,
-    <DarkMode/>,
+    // <DarkMode/>,
+    <Reducefetch/>,
   document.getElementById('root')
 )
    
