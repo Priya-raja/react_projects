@@ -26,16 +26,12 @@ function randomName() {
 // 1. Replace the useStates with a useReducer
 // 2. Move our useReducer into a custom hook
 
-export default function App() {
-  //let [darkMode, setDarkMode] = useState(false)
-  //let [name, setName] = useState('')
-  //let [background, setBackground] = useState('')
-  //let [error, setError] = useState(null)
-  
+function useCharacterSheetState() {
   let [state, dispatch] = useReducer((state, action) => {
+    // eslint-disable-next-line default-case
     switch(action.type) {
       case "SET_BACKGROUND": {
-        return { ...state, background: action.value }
+        return { ...state, background: action.value, error: null }
       }
       case "NONEXISTENT_BACKGROUND": {
         return { ...state, error: 'This background does NOT exist.' }
@@ -44,12 +40,19 @@ export default function App() {
         return { ...state, darkMode: !state.darkMode }
       }
       case "INPUT_NAME": {
+        if (action.value.length > 15) {
+          return { ...state, name: action.name, error: 'Name is WAY too long, bucko' }
+        }
+        
         return { ...state, name: action.value }
       }
-      case "NAME_TOO_LONG": {
-        return { ...state, error: 'Name is WAY too long, bucko' }
+      case "DISMISS_ERROR": {
+        return { ...state, error: null }
       }
-    
+      case "RANDOMIZE_VALS": {
+        return { ...state, name: randomName(), background: randomBackground() }
+      }
+    }
   }, {
     darkMode: false,
     name: '',
@@ -57,7 +60,16 @@ export default function App() {
     error: null
   })
   
-  let { darkMode, name, background, error } = state
+  return [state, dispatch]
+}
+
+export default function DarkMode() {
+  //let [darkMode, setDarkMode] = useState(false)
+  //let [name, setName] = useState('')
+  //let [background, setBackground] = useState('')
+  //let [error, setError] = useState(null)
+  
+  let [{ darkMode, name, background, error }, dispatch] = useCharacterSheetState()
 
   function handleBackgroundSelect(event) {
     let value = event.target.value
@@ -87,11 +99,6 @@ export default function App() {
           value={name}
           onChange={(event) => {
             dispatch({ type: "INPUT_NAME", value: event.target.value })
-            // setName(event.target.value)
-            if (event.target.value.length > 15) {
-              // setError('Name is WAY too long, bucko.')
-              dispatch({ type: "NAME_TOO_LONG" })
-            }
           }}
         />
         <select value={background} onChange={handleBackgroundSelect}>
@@ -104,7 +111,8 @@ export default function App() {
             {error}
             <button
               onClick={() => {
-                setError(null)
+                // setError(null)
+                dispatch({ type: "DISMISS_ERROR" })
               }}
             >
               Dismiss
@@ -117,8 +125,9 @@ export default function App() {
         </div>
         <button
           onClick={() => {
-            setName(randomName())
-            setBackground(randomBackground())
+            dispatch({ type: "RANDOMIZE_VALS" })
+            // setName(randomName())
+            // setBackground(randomBackground())
           }}
         >
           Do it all for me instead
@@ -127,5 +136,3 @@ export default function App() {
     </>
   )
 }
-
-ReactDOM.render(<App />, document.getElementById('root'));
