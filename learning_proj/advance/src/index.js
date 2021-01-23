@@ -9,6 +9,7 @@ import './App.css';
 import Reduceexample from './Reduceexample';
 // import DarkMode from './DarkMode';
 import Reducefetch from './Reducefetch';
+import Accordian from './Accordian';
 
 ReactDOM.render(
   // <App />,
@@ -18,7 +19,8 @@ ReactDOM.render(
     // <Toggleable/>,
     // <Reduceexample/>,
     // <DarkMode/>,
-    <Reducefetch/>,
+    // <Reducefetch/>,
+    <Accordian/>,
   document.getElementById('root')
 )
    
