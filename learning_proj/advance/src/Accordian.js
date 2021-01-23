@@ -27,13 +27,10 @@ function Accordion({ data, position="top" }) {
         )
       
         return (
-          <Fragment key={index}>
-
-            <div data-panel-content className={isActive ? 'expanded' : ''}>
-              {tab.content}
-            </div>
-          </Fragment>
-        )
+            <Fragment key={index}>
+              { position === 'bottom' ? [content, title] : [title, content] }
+            </Fragment>
+          )
       })}
     </div>
   )
@@ -77,4 +74,5 @@ function Description({ city }) {
 
   return <div>{data[city]}</div>
 }
+export default Accordian;
 
