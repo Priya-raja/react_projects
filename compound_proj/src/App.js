@@ -65,7 +65,34 @@ function App() {
 
   return (
     <div className="App">
-      <Accordion data={data} position="bottom" disabled={[1]}/>
+      <AccordionCC>
+      <Section>
+          <Content>
+            <Description city="paris" />
+          </Content>
+          <Title>
+            <span>🧀</span> Paris
+          </Title>
+        </Section>
+        <Section>
+          <Title>
+            Lech <span>⛷</span>
+          </Title>
+          <Content>
+            <Description city="lech" />
+          </Content>
+        </Section>
+        <Section>
+          <Title>
+            Madrid <span>🍷</span>
+          </Title>
+          <Content>
+            <Description city="madrid" />
+          </Content>
+        </Section>
+
+      </AccordionCC>
+      {/* <Accordion data={data} position="bottom" disabled={[1]}/> */}
     </div>
   )
 }
