@@ -44,6 +44,53 @@ function Accordion({ data, position="top", disabled=[] }) {
   )
 }
 
+function AccordionCC({children}) {
+  return <div data-accordion>{children}</div>
+
+}
+
+function Section({ children }) {
+  return <div data-section>{children}</div>
+}
+
+function Title({ children }) {
+  let index = 0 // TODO
+  let activeIndex = 0 // TODO
+  let setActiveIndex = () => {} // TODO
+  let isActive = index === activeIndex
+  let disabled = false // TODO
+  
+  return (
+    <div
+      data-panel-title
+      className={
+        disabled ? 'disabled' : isActive ? 'expanded' : ''
+      }
+      onClick={() => {
+        if (!disabled) {
+          setActiveIndex(index)
+        }
+      }}
+    >
+      {children}
+    </div>
+  )
+}
+
+function Content({ children }) {
+  let index = 0 // TODO
+  let activeIndex = 0 // TODO
+  let isActive = index === activeIndex
+  
+  return (
+    <div data-panel-content className={isActive ? 'expanded' : ''}>
+      {children}
+    </div>
+  )
+}
+
+
+
 function App() {
   const data = [
     {
