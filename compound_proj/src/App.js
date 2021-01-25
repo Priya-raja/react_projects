@@ -92,34 +92,34 @@ function Content({ children }) {
 
 
 function App() {
-  const data = [
-    {
-      label: 'Paris',
-      icon: '🧀',
-      content: <Description city="paris" />,
-    },
-    {
-      label: 'Lech',
-      icon: '⛷',
-      content: <Description city="lech" />,
-    },
-    {
-      label: 'Madrid',
-      icon: '🍷',
-      content: <Description city="madrid" />,
-    },
-  ]
+  // const data = [
+  //   {
+  //     label: 'Paris',
+  //     icon: '🧀',
+  //     content: <Description city="paris" />,
+  //   },
+  //   {
+  //     label: 'Lech',
+  //     icon: '⛷',
+  //     content: <Description city="lech" />,
+  //   },
+  //   {
+  //     label: 'Madrid',
+  //     icon: '🍷',
+  //     content: <Description city="madrid" />,
+  //   },
+  // ]
 
   return (
     <div className="App">
       <AccordionCC>
-      <Section>
-          <Content>
-            <Description city="paris" />
-          </Content>
+        <Section>
           <Title>
             <span>🧀</span> Paris
           </Title>
+          <Content>
+            <Description city="paris" />
+          </Content>
         </Section>
         <Section>
           <Title>
@@ -137,9 +137,8 @@ function App() {
             <Description city="madrid" />
           </Content>
         </Section>
-
       </AccordionCC>
-      {/* <Accordion data={data} position="bottom" disabled={[1]}/> */}
+    
     </div>
   )
 }
