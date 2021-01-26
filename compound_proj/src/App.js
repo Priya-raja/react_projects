@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, createContext, useContext } from 'react';
 import ReactDOM from 'react-dom';
 
 
@@ -43,11 +43,16 @@ function Accordion({ data, position="top", disabled=[] }) {
     </div>
   )
 }
+let AccordionContext = createContext()
 
 function AccordionCC({children}) {
   const [activeIndex, setActiveIndex] = useState(0)
+  let value = {activeIndex, setActiveIndex}
   
-  return <div data-accordion>{children}</div>
+  return <AccordionContext.Provider value={{activeIndex, setActiveIndex}}>
+      <div data-accordion>{children}</div>
+  </AccordionContext.Provider>
+   
 
 }
 function Section({ children }) {
@@ -56,8 +61,7 @@ function Section({ children }) {
 
 function Title({ children }) {
   let index = 0 // TODO
-  let activeIndex = 0 // TODO
-  let setActiveIndex = () => {} // TODO
+  let { activeIndex, setActiveIndex } = useContext(AccordionContext)
   let isActive = index === activeIndex
   let disabled = false // TODO
   
@@ -80,7 +84,7 @@ function Title({ children }) {
 
 function Content({ children }) {
   let index = 0 // TODO
-  let activeIndex = 0 // TODO
+  let { activeIndex } = useContext(AccordionContext)
   let isActive = index === activeIndex
   
   return (
