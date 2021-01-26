@@ -45,10 +45,11 @@ function Accordion({ data, position="top", disabled=[] }) {
 }
 
 function AccordionCC({children}) {
+  const [activeIndex, setActiveIndex] = useState(0)
+  
   return <div data-accordion>{children}</div>
 
 }
-
 function Section({ children }) {
   return <div data-section>{children}</div>
 }
