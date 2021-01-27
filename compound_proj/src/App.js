@@ -1,7 +1,6 @@
 import React, { Fragment, useState, createContext, useContext } from 'react';
 import ReactDOM from 'react-dom';
 
-
 function Accordion({ data, position="top", disabled=[] }) {
   const [activeIndex, setActiveIndex] = useState(0)
   
@@ -43,25 +42,34 @@ function Accordion({ data, position="top", disabled=[] }) {
     </div>
   )
 }
+
 let AccordionContext = createContext()
 
-function AccordionCC({children}) {
+function AccordionCC({ children }) {
   const [activeIndex, setActiveIndex] = useState(0)
-  let value = {activeIndex, setActiveIndex}
   
-  return <AccordionContext.Provider value={{activeIndex, setActiveIndex}}>
-      <div data-accordion>{children}</div>
-  </AccordionContext.Provider>
-   
-
+  return (
+    <div data-accordion>
+      {children.map((child, index) => {
+        return (
+          <AccordionContext.Provider
+            key={`section-${index}`}
+            value={{index, activeIndex, setActiveIndex}}
+          >
+            {child}
+          </AccordionContext.Provider>
+        )
+      })}
+    </div>
+  )
 }
-function Section({ children }) {
+
+function Section({ children, disabled }) {
   return <div data-section>{children}</div>
 }
 
 function Title({ children }) {
-  let index = 0 // TODO
-  let { activeIndex, setActiveIndex } = useContext(AccordionContext)
+  let { index, activeIndex, setActiveIndex } = useContext(AccordionContext)
   let isActive = index === activeIndex
   let disabled = false // TODO
   
@@ -83,8 +91,7 @@ function Title({ children }) {
 }
 
 function Content({ children }) {
-  let index = 0 // TODO
-  let { activeIndex } = useContext(AccordionContext)
+  let { index, activeIndex } = useContext(AccordionContext)
   let isActive = index === activeIndex
   
   return (
@@ -94,26 +101,24 @@ function Content({ children }) {
   )
 }
 
-
-
 function App() {
-  // const data = [
-  //   {
-  //     label: 'Paris',
-  //     icon: '🧀',
-  //     content: <Description city="paris" />,
-  //   },
-  //   {
-  //     label: 'Lech',
-  //     icon: '⛷',
-  //     content: <Description city="lech" />,
-  //   },
-  //   {
-  //     label: 'Madrid',
-  //     icon: '🍷',
-  //     content: <Description city="madrid" />,
-  //   },
-  // ]
+  /*const data = [
+    {
+      label: 'Paris',
+      icon: '🧀',
+      content: <Description city="paris" />,
+    },
+    {
+      label: 'Lech',
+      icon: '⛷',
+      content: <Description city="lech" />,
+    },
+    {
+      label: 'Madrid',
+      icon: '🍷',
+      content: <Description city="madrid" />,
+    },
+  ]*/
 
   return (
     <div className="App">
@@ -143,7 +148,6 @@ function App() {
           </Content>
         </Section>
       </AccordionCC>
-    
     </div>
   )
 }
@@ -160,5 +164,4 @@ function Description({ city }) {
 
   return <div>{data[city]}</div>
 }
-export default App
-
+export default App;
