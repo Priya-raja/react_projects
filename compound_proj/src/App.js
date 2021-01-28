@@ -64,9 +64,14 @@ function AccordionCC({ children }) {
   )
 }
 
+let SectionContext = createContext()
+
 function Section({ children, disabled }) {
-  return <div data-section>{children}</div>
+  return <SectionContext.Provider value= {{ disabled }}>
+    <div data-section>{children}</div>
+  </SectionContext.Provider>
 }
+
 
 function Title({ children }) {
   let { index, activeIndex, setActiveIndex } = useContext(AccordionContext)
