@@ -10,10 +10,6 @@ function DragElements({ children, size, ...props }) {
     // Add the target element's id to the data transfer object
     const target = e.target;
     e.dataTransfer.setData('palette_id', target.id)
-
-    // setTimeout(() => {
-    //   target.style.display = "none";
-    // }, 0);
   }
 
   return (
