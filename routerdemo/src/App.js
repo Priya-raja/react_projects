@@ -1,34 +1,25 @@
-import React from "react"
-import {Route, Switch, useRouteMatch} from "react-router-dom"
-import Home from './pages/Home'
-import Header from "./components/header"
-import ServiceList from './services/ServiceList'
-import ServiceDetail from './services/ServiceDetail'
+import React from 'react'
+import Header from './components/header'
+import {Route} from 'react-router-dom';
+import Welcome from './pages/Welcome';
+import Products from './pages/Products';
+import ProductDetail from './pages/ProductDetail';
+
+function App() {
+    return (
+        <div>
+              <Header/>
+          <main>
+              <Route path="/welcome"> <Welcome/></Route>
+              <Route path="/products"> <Products/></Route>
+              <Route path="/productDetail/:productId">
+                   <ProductDetail/></Route>
 
 
-function App () {
-  const {path, url} = useRouteMatch();
-  console.log(path);
-  return(
-     
-    <div>
-      <Header />
-      
-<Switch>
-  <Route exact path="/"><Home /></Route> 
-  
-
-  <Route exact path="/services"><ServiceList/> </Route> 
-  <Route exact path="/services/:serviceId"><ServiceDetail/> </Route>
-
-   
-
-</Switch>
-
-    </div>
-
-
-  )
+          </main>
+            
+        </div>
+    )
 }
-export default App;
 
+export default App

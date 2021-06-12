@@ -1,18 +1,22 @@
-import React from "react"
-import {Link, useRouteMatch} from "react-router-dom"
+import React from 'react'
+import {NavLink} from 'react-router-dom';
 
+import classes from './header.module.css';
 function Header() {
     return (
-        <header>
-            <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/services">Services</Link></li>
-            
-
-            
-           
-            </ul>
-        </header>
+        <header className={classes.header}>
+            <nav>
+                <ul>
+                    <li>
+                    <NavLink activeClassName = {classes.active} to="/welcome">Welcome</NavLink>
+                    </li>
+                    <li>
+                    <NavLink activeClassName = {classes.active} to="/products">Products</NavLink>
+                    </li>
+                    
+                </ul>
+            </nav>
+            </header>
     )
 }
 
